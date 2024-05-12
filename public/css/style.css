@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root{
+	--black: #000000;
+	--blackGrey: #242424;
+	--grey: #808080;
+	--whiteGrey: #ECECEC;
+	--white: #FFFFFF;
+	--accent: #2695D4;
+	--accent2: #E6F4FC;
+	--accentFont: "Rubik", sans-serif;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	scroll-behavior: smooth;
+	font-family: var(--accentFont);
+	color: var(--blackGrey);
+	background: var(--white);
+}
+
+input, textarea, button {
+	font-family: var(--accentFont);
+}
+
+.flex{
+	display: flex;
+}
+.flexCol{
+	flex-direction: column;
+}
+.flexRow{
+	flex-direction: row;
+}
+
+.chat-container {
+	height: calc(100vh - 50px);
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+}
+
+#onlineUsers {
+	width: 100%;
+	height: 40px;
+	color: var(--blackGrey);
+	background: var(--white);
+	font-size: 14px;
+	font-weight: 300;
+	text-transform: uppercase;
+	justify-content: center;
+	align-items: center;
+	gap: 5px;
+	border-top: 1px solid var(--accent2);
+}
+
+#chatroom {
+	height: calc(100% - 80px);
+	width: calc(100% - 20px);
+	background: var(--whiteGrey);
+	overflow: auto;
+	padding: 10px;
+	gap: 10px;
+}
+
+.my-msg {
+	color: var(--whiteGrey);
+	background: var(--accent);
+	width: calc(100% - 30px);
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 5px;
+	padding: 15px;
+	border-radius: 20px 5px 20px 20px;
+}
+
+.other-msg {
+	color: var(--blackGrey);
+	background: var(--white);
+	width: calc(100% - 30px);
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 5px;
+	padding: 15px;
+	border-radius: 5px 20px 20px 20px;
+}
+
+.msg-content {
+	font-weight: 300;
+	width: fit-content;
+	word-break: break-all;
+}
+.my-msg .msg-content {
+	text-align: right;
+}
+.other-msg .msg-content {
+	text-align: left;
+}
+
+.timestamp {
+	width: fit-content;
+	text-transform: uppercase;
+	font-size: 10px;
+	font-weight: 300;
+}
+.my-msg .timestamp {
+	color: var(--whiteGrey);
+}
+.other-msg .timestamp {
+	color: var(--grey);
+}
+
+#messageForm {
+	height: 40px;
+	width: calc(100% - 20px);
+	background: var(--white);
+	padding: 10px;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#messageForm input {
+	width: calc(100% - 60px);
+	height: 10px;
+	background: var(--whiteGrey);
+	padding: 10px;
+	border: 1px solid transparent;
+	border-radius: 5px;
+	font-size: 12px;
+	font-weight: 300;
+	outline: none;
+}
+#messageForm input:focus {
+	background: #F0F0F0;
+	border: 1px solid var(--grey);
+}
+
+#messageForm button {
+	width: 30px;
+	height: 30px;
+	align-items: center;
+	justify-content: center;
+	color: var(--whiteGrey);
+	background: var(--accent);
+	border: none;
+	border-radius: 5px;
+}
+#messageForm button i {
+	font-size: 10px;
+}
