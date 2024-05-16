@@ -9,18 +9,24 @@
 	--accent: #2695D4;
 	--accent2: #E6F4FC;
 	--accentFont: "Rubik", sans-serif;
+	--transition: 0.3s;
 }
 
 * {
 	margin: 0;
 	padding: 0;
+	font-family: var(--accentFont);
 }
 
 html {
 	scroll-behavior: smooth;
-	font-family: var(--accentFont);
 	color: var(--blackGrey);
 	background: var(--white);
+}
+
+a {
+	text-underline-offset: 2.5px;
+	text-decoration: underline;
 }
 
 input, textarea, button {
@@ -48,10 +54,10 @@ input, textarea, button {
 #onlineUsers {
 	width: 100%;
 	height: 40px;
-	color: var(--blackGrey);
+	color: var(--accent);
 	background: var(--white);
 	font-size: 14px;
-	font-weight: 300;
+	font-weight: 500;
 	text-transform: uppercase;
 	justify-content: center;
 	align-items: center;
@@ -68,47 +74,57 @@ input, textarea, button {
 	gap: 10px;
 }
 
+.msg-wrapper{
+	max-width: 70%;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	padding: 15px;
+}
+
 .my-msg {
-	color: var(--whiteGrey);
-	background: var(--accent);
-	width: calc(100% - 30px);
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
-	gap: 5px;
-	padding: 15px;
+}
+.my-msg .msg-wrapper {
+	color: var(--whiteGrey);
+	background: var(--accent);
+	align-items: flex-end;
 	border-radius: 20px 5px 20px 20px;
 }
+
 .my-msg a {
 	color: var(--whiteGrey);
-	text-underline-offset: 2.5px;
-	text-decoration: underline;
 }
 
 .other-msg {
-	color: var(--blackGrey);
-	background: var(--white);
-	width: calc(100% - 30px);
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	gap: 5px;
-	padding: 15px;
+}
+.other-msg .msg-wrapper {
+	color: var(--blackGrey);
+	background: var(--white);
+	align-items: flex-end;
 	border-radius: 5px 20px 20px 20px;
 }
+
 .other-msg a {
 	color: var(--blackGrey);
-	text-underline-offset: 2.5px;
-	text-decoration: underline;
 }
 
 .msg-content {
+	font-size: 14px;
 	font-weight: 300;
+	line-height: 1.3;
 	width: fit-content;
-	word-break: break-all;
+	word-break: break-word;
 }
 .my-msg .msg-content {
-	text-align: right;
+	text-align: left;
 }
 .other-msg .msg-content {
 	text-align: left;
@@ -141,15 +157,21 @@ input, textarea, button {
 	height: 10px;
 	background: var(--whiteGrey);
 	padding: 10px;
-	border: 1px solid transparent;
+	border: none;
 	border-radius: 5px;
 	font-size: 12px;
 	font-weight: 300;
-	outline: none;
+	outline: 1px solid var(--whiteGrey);
+	transition: var(--transition);
 }
+#messageForm input::placeholder {
+	color: var(--grey);
+}
+
 #messageForm input:focus {
-	background: #F0F0F0;
-	border: 1px solid var(--grey);
+	background: #F4F4F4;
+	outline: 1px solid var(--accent);
+	transition: var(--transition);
 }
 
 #messageForm button {
@@ -160,7 +182,9 @@ input, textarea, button {
 	color: var(--whiteGrey);
 	background: var(--accent);
 	border: none;
+	outline: 1px solid var(--accent);
 	border-radius: 5px;
+	cursor: pointer;
 }
 #messageForm button i {
 	font-size: 10px;

@@ -18,33 +18,37 @@ socket.on('chatMessage', (msg) => {
 		div.classList.add('other-msg');
 	}
 
+	// Create a new span element for the message wrapper
+	const msgWrapper = document.createElement('span');
+	msgWrapper.classList.add('msg-wrapper');
+
 	// Create a new span element for the message content
 	const msgContent = document.createElement('span');
-
 	const textWithLinks = msg.text.replace(/\b((https?:\/\/\S+)|(www\.\S+)|(\w+\.\w+))\b/g, (match) => {
-        const url = match.startsWith('http') ? match : `https://${match}`;
-        return `<a href="${url}" target="_blank">${match}</a>`;
-    });
+		const url = match.startsWith('http') ? match : `https://${match}`;
+		return `<a href="${url}" target="_blank">${match}</a>`;
+	});
 	msgContent.innerHTML = textWithLinks;
-
 	msgContent.classList.add('msg-content');
-
-	// Append the message content to the message div
-	div.appendChild(msgContent);
 
 	// Create a new span element for the timestamp
 	const timestamp = document.createElement('span');
 	timestamp.textContent = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
 	timestamp.classList.add('timestamp');
 
-	// Append the timestamp to the message div
-	div.appendChild(timestamp);
+	// Append the message content and timestamp to the message wrapper
+	msgWrapper.appendChild(msgContent);
+	msgWrapper.appendChild(timestamp);
+
+	// Append the message wrapper to the message div
+	div.appendChild(msgWrapper);
 
 	chatroom.appendChild(div);
 
 	// Scroll to the bottom of the chat room
 	chatroom.scrollTop = chatroom.scrollHeight;
 });
+
 
 // Listen for onlineCount events from the server
 socket.on('onlineCount', (count) => {
@@ -54,6 +58,7 @@ socket.on('onlineCount', (count) => {
 		onlineUsers.textContent = `${count} Users Online`;
 	}
 });
+
 
 // Emit chat message events to the server
 messageForm.addEventListener('submit', (e) => {
