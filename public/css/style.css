@@ -79,6 +79,11 @@ input, textarea, button {
 	padding: 15px;
 	border-radius: 20px 5px 20px 20px;
 }
+.my-msg a {
+	color: var(--whiteGrey);
+	text-underline-offset: 2.5px;
+	text-decoration: underline;
+}
 
 .other-msg {
 	color: var(--blackGrey);
@@ -90,6 +95,11 @@ input, textarea, button {
 	gap: 5px;
 	padding: 15px;
 	border-radius: 5px 20px 20px 20px;
+}
+.other-msg a {
+	color: var(--blackGrey);
+	text-underline-offset: 2.5px;
+	text-decoration: underline;
 }
 
 .msg-content {
