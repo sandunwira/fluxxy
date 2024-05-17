@@ -7,21 +7,21 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="theme-color" content="#2695D4">
 
-	<title>Page Not Found - Fluxxy</title>
+	<title>Register - Fluxxy</title>
 
 	<!-- SEO Start =================================================================================-->
-	<meta name="title" content="Page Not Found - Fluxxy">
+	<meta name="title" content="Register - Fluxxy">
 	<meta name="description" content="Fluxxy is an open source website to share texts and many more with the people around the world, no matter where you are.">
 	<!-- Open Graph -->
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="">
-	<meta property="og:title" content="Page Not Found - Fluxxy">
+	<meta property="og:title" content="Register - Fluxxy">
 	<meta property="og:description" content="Fluxxy is an open source website to share texts and many more with the people around the world, no matter where you are.">
 	<meta property="og:image" content="https://i.postimg.cc/1XbsDBhv/preview.png">
 	<!-- Twitter -->
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:url" content="">
-	<meta name="twitter:title" content="Page Not Found - Fluxxy">
+	<meta name="twitter:title" content="Register - Fluxxy">
 	<meta name="twitter:description" content="Fluxxy is an open source website to share texts and many more with the people around the world, no matter where you are.">
 	<meta name="twitter:image" content="https://i.postimg.cc/1XbsDBhv/preview.png">
 	<!--=================================================================================== SEO End -->
@@ -36,8 +36,26 @@
 </head>
 
 <body>
-	<h1>Page Not Found</h1>
-	<p>Click <a href="/">here</a> to go back to the home page</p>
+
+	<form action="/userRegister" method="POST" id="registerForm">
+			<div>
+				<input type="text" id="registerName" name="name" placeholder="Name" title="Name" required>
+
+				<input type="email" id="registerEmail" name="email" placeholder="Email" title="Email" required>
+
+				<input type="password" id="registerPassword" name="password" placeholder="Password" title="Password" required>
+
+				<input type="password" id="registerConfirmPassword" name="confirmPassword" placeholder="Confirm Password" title="Confirm Password" required>
+			</div>
+
+			<button type="submit">Register</button>
+
+			<span>
+				Existing User?
+				<a href="/login">Login</a>
+			</span>
+		</form>
+
 </body>
 
 </html>

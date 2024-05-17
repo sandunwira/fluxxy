@@ -11,8 +11,10 @@
   "license": "MIT",
   "description": "",
   "dependencies": {
+    "cookie-parser": "^1.4.6",
     "express": "^4.19.2",
     "serve-favicon": "^2.5.0",
-    "socket.io": "^4.7.5"
+    "socket.io": "^4.7.5",
+    "sqlite3": "^5.1.7"
   }
 }

@@ -53,9 +53,9 @@ socket.on('chatMessage', (msg) => {
 // Listen for onlineCount events from the server
 socket.on('onlineCount', (count) => {
 	if (count <= 1) {
-		onlineUsers.textContent = `${count} User Online`;
+		onlineUsers.textContent = `You are online`;
 	} else {
-		onlineUsers.textContent = `${count} Users Online`;
+		onlineUsers.textContent = `${count} users are online`;
 	}
 });
 

@@ -7,21 +7,21 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="theme-color" content="#2695D4">
 
-	<title>Page Not Found - Fluxxy</title>
+	<title>Chat - Fluxxy</title>
 
 	<!-- SEO Start =================================================================================-->
-	<meta name="title" content="Page Not Found - Fluxxy">
+	<meta name="title" content="Chat - Fluxxy">
 	<meta name="description" content="Fluxxy is an open source website to share texts and many more with the people around the world, no matter where you are.">
 	<!-- Open Graph -->
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="">
-	<meta property="og:title" content="Page Not Found - Fluxxy">
+	<meta property="og:title" content="Chat - Fluxxy">
 	<meta property="og:description" content="Fluxxy is an open source website to share texts and many more with the people around the world, no matter where you are.">
 	<meta property="og:image" content="https://i.postimg.cc/1XbsDBhv/preview.png">
 	<!-- Twitter -->
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:url" content="">
-	<meta name="twitter:title" content="Page Not Found - Fluxxy">
+	<meta name="twitter:title" content="Chat - Fluxxy">
 	<meta name="twitter:description" content="Fluxxy is an open source website to share texts and many more with the people around the world, no matter where you are.">
 	<meta name="twitter:image" content="https://i.postimg.cc/1XbsDBhv/preview.png">
 	<!--=================================================================================== SEO End -->
@@ -33,11 +33,28 @@
 
 	<link rel="stylesheet" href="/css/style.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+	<script src="/socket.io/socket.io.js" defer></script>
+	<script src="/js/chatroom.js" defer></script>
 </head>
 
 <body>
-	<h1>Page Not Found</h1>
-	<p>Click <a href="/">here</a> to go back to the home page</p>
+	<div class="logo-nav flex">
+		<img src="/assets/images/logos/logo_with_text.png" alt="Fluxxy Logo" style="height: 35%;">
+	</div>
+
+	<div class="chat-container flex flexCol">
+		<div id="onlineUsers" class="flex flexRow"></div>
+		<div id="chatroom" class="flex flexCol"></div>
+
+		<form id="messageForm" class="flex flexRow">
+			<input type="text" id="messageInput" autocomplete="off" placeholder="TYPE YOUR MESSAGE" title="" required>
+
+			<button type="submit" class="flex">
+				<i class="fa-solid fa-arrow-right"></i>
+			</button>
+		</form>
+	</div>
 </body>
 
 </html>
