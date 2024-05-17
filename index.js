@@ -4,14 +4,24 @@ const cookieParser = require('cookie-parser');
 const path = require('path');
 const http = require('http');
 const socketio = require('socket.io');
+const sqlite3 = require('sqlite3').verbose();
+const nodemailer = require('nodemailer');
 var favicon = require('serve-favicon');
 const port = process.env.PORT || 3000;
-const sqlite3 = require('sqlite3').verbose();
 
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
 
+
+// create reusable transporter object using the default SMTP transport
+let transporter = nodemailer.createTransport({
+	service: 'gmail', // use 'gmail' as an example, you can use other services
+	auth: {
+		user: 'fluxxy.contact@gmail.com', // your email
+		pass: 'dont izuz iggb jkme' // your email password
+	}
+});
 
 // Cookie Configuration Start
 app.use(cookieParser());
@@ -175,6 +185,98 @@ app.post('/userRegister', (req, res) => {
 				`;
 
 				res.send(userRegisterHtml);
+
+				// after user is registered
+				let mailOptions = {
+					from: 'fluxxy.contact@gmail.com', // sender address
+					to: email, // list of receivers
+					subject: 'Welcome to Fluxxy', // Subject line
+					text: 'Thank you for registering ' + name.split(' ')[0] + '.', // plain text body
+					html: `
+						<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+						<html xmlns="http://www.w3.org/1999/xhtml">
+
+						<head>
+							<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+							<meta name="viewport" content="width=device-width, initial-scale=1" />
+						</head>
+
+						<body>
+							<style>
+								body {
+									font-family: Arial, sans-serif;
+									margin: 0;
+									padding: 0;
+									color: #333;
+								}
+
+								a {
+									color: #4CAF50;
+									text-decoration: none;
+								}
+								a:hover {
+									color: #3e8e41;
+								}
+
+								.container {
+									padding: 20px;
+									max-width: 600px;
+									margin: 0 auto;
+									border-radius: 5px;
+									background-color: #f2f2f2;
+								}
+
+								.header {
+									text-align: center;
+								}
+
+								.content {
+									padding: 20px;
+								}
+
+								.footer {
+									text-align: center;
+									padding: 10px;
+									background-color: #ddd;
+								}
+							</style>
+
+							<div class="container">
+								<div class="header">
+									<h1>Welcome to Fluxxy, ${name.split(' ')[0]}!</h1>
+								</div>
+
+								<div class="content">
+									<p>Thank you for registering with Fluxxy. We're excited to have you on board!</p>
+									<p>We're constantly adding new features for you to try, so be sure to check back often!</p>
+
+									<h2>Getting Started</h2>
+									<p>Ready to get started? Click the button below to login to your account:</p>
+
+									<a href="https://fluxxy.onrender.com/login" style="background-color: #4CAF50; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; border-radius: 5px;">Login Now</a>
+
+									<p>If you have any questions or suggestions, please don't hesitate to contact us at <a href="mailto:fluxxy.contact@gmail.com">fluxxy.contact@gmail.com</a>.</p>
+									<p>We're here to support you in any way we can.</p>
+									<p>Warmly,</p>
+									<p>Fluxxy Team</p>
+								</div>
+
+								<div class="footer">
+									<p>&copy; 2024 Fluxxy</p>
+								</div>
+							</div>
+						</body>
+
+						</html>
+					` // html body
+				};
+				// send mail with defined transport object
+				transporter.sendMail(mailOptions, (error, info) => {
+					if (error) {
+						return console.log(error);
+					}
+					console.log('Message sent: %s', info.messageId);
+				});
 			});
 		});
 	} else {
