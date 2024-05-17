@@ -2,8 +2,28 @@
 <html>
 
 <head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="theme-color" content="#2695D4">
+
+	<!-- SEO Start =================================================================================-->
+	<meta name="title" content="Home - Fluxxy">
+	<meta name="description" content="Fluxxy is an open source website to share texts and many more with the people around the world, no matter where you are.">
+	<!-- Open Graph -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="">
+	<meta property="og:title" content="Home - Fluxxy">
+	<meta property="og:description" content="Fluxxy is an open source website to share texts and many more with the people around the world, no matter where you are.">
+	<meta property="og:image" content="https://i.postimg.cc/1XbsDBhv/preview.png">
+	<!-- Twitter -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:url" content="">
+	<meta name="twitter:title" content="Home - Fluxxy">
+	<meta name="twitter:description" content="Fluxxy is an open source website to share texts and many more with the people around the world, no matter where you are.">
+	<meta name="twitter:image" content="https://i.postimg.cc/1XbsDBhv/preview.png">
+	<!--=================================================================================== SEO End -->
+
 	<meta name="apple-mobile-web-app-status-bar" content="#2695D4">
 	<link rel="apple-touch-icon" href="https://i.postimg.cc/mZJ0wS0v/logo.png">
 	<link rel="manifest" href="/manifest.json">
@@ -19,7 +39,7 @@
 </head>
 
 <body>
-	<div class="flex" style="height: 50px; background: var(--white); align-items: center; justify-content: center;">
+	<div class="logo-nav flex">
 		<img src="/assets/images/logos/logo_with_text.png" alt="Fluxxy Logo" style="height: 35%;">
 	</div>
 
@@ -28,7 +48,7 @@
 		<div id="chatroom" class="flex flexCol"></div>
 
 		<form id="messageForm" class="flex flexRow">
-			<input type="text" id="messageInput" autocomplete="off" placeholder="TYPE YOUR MESSAGE" required>
+			<input type="text" id="messageInput" autocomplete="off" placeholder="TYPE YOUR MESSAGE" title="" required>
 
 			<button type="submit" class="flex">
 				<i class="fa-solid fa-arrow-right"></i>

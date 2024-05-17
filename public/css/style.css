@@ -12,6 +12,7 @@
 	--transition: 0.3s;
 }
 
+
 * {
 	margin: 0;
 	padding: 0;
@@ -20,8 +21,6 @@
 
 html {
 	scroll-behavior: smooth;
-	color: var(--blackGrey);
-	background: var(--white);
 }
 
 a {
@@ -43,6 +42,12 @@ input, textarea, button {
 	flex-direction: row;
 }
 
+.logo-nav {
+	height: 50px;
+	align-items: center;
+	justify-content: center;
+}
+
 .chat-container {
 	height: calc(100vh - 50px);
 	width: 100%;
@@ -54,21 +59,17 @@ input, textarea, button {
 #onlineUsers {
 	width: 100%;
 	height: 40px;
-	color: var(--accent);
-	background: var(--white);
 	font-size: 14px;
 	font-weight: 500;
 	text-transform: uppercase;
 	justify-content: center;
 	align-items: center;
 	gap: 5px;
-	border-top: 1px solid var(--accent2);
 }
 
 #chatroom {
 	height: calc(100% - 80px);
 	width: calc(100% - 20px);
-	background: var(--whiteGrey);
 	overflow: auto;
 	padding: 10px;
 	gap: 10px;
@@ -94,7 +95,6 @@ input, textarea, button {
 	align-items: flex-end;
 	border-radius: 20px 5px 20px 20px;
 }
-
 .my-msg a {
 	color: var(--whiteGrey);
 }
@@ -106,14 +106,8 @@ input, textarea, button {
 	align-items: flex-start;
 }
 .other-msg .msg-wrapper {
-	color: var(--blackGrey);
-	background: var(--white);
 	align-items: flex-end;
 	border-radius: 5px 20px 20px 20px;
-}
-
-.other-msg a {
-	color: var(--blackGrey);
 }
 
 .msg-content {
@@ -136,17 +130,10 @@ input, textarea, button {
 	font-size: 10px;
 	font-weight: 300;
 }
-.my-msg .timestamp {
-	color: var(--whiteGrey);
-}
-.other-msg .timestamp {
-	color: var(--grey);
-}
 
 #messageForm {
 	height: 40px;
 	width: calc(100% - 20px);
-	background: var(--white);
 	padding: 10px;
 	justify-content: space-between;
 	align-items: center;
@@ -155,23 +142,11 @@ input, textarea, button {
 #messageForm input {
 	width: calc(100% - 60px);
 	height: 10px;
-	background: var(--whiteGrey);
 	padding: 10px;
 	border: none;
 	border-radius: 5px;
 	font-size: 12px;
 	font-weight: 300;
-	outline: 1px solid var(--whiteGrey);
-	transition: var(--transition);
-}
-#messageForm input::placeholder {
-	color: var(--grey);
-}
-
-#messageForm input:focus {
-	background: #F4F4F4;
-	outline: 1px solid var(--accent);
-	transition: var(--transition);
 }
 
 #messageForm button {
@@ -179,13 +154,141 @@ input, textarea, button {
 	height: 30px;
 	align-items: center;
 	justify-content: center;
-	color: var(--whiteGrey);
-	background: var(--accent);
 	border: none;
-	outline: 1px solid var(--accent);
 	border-radius: 5px;
 	cursor: pointer;
 }
 #messageForm button i {
 	font-size: 10px;
 }
+
+
+/* Light Mode Styles Start ========================================================= */
+@media (prefers-color-scheme: light) {
+	html {
+		color: var(--blackGrey);
+		background: var(--white);
+	}
+
+	.logo-nav {
+		background: var(--white);
+	}
+
+	#onlineUsers {
+		color: var(--accent);
+		background: var(--white);
+		border-top: 1px solid var(--accent2);
+	}
+
+	#chatroom {
+		background: var(--whiteGrey);
+	}
+
+	.other-msg .msg-wrapper {
+		color: var(--blackGrey);
+		background: var(--white);
+	}
+
+	.other-msg a {
+		color: var(--blackGrey);
+	}
+
+	.my-msg .timestamp {
+		color: var(--whiteGrey);
+	}
+	.other-msg .timestamp {
+		color: var(--grey);
+	}
+
+	#messageForm {
+		background: var(--white);
+	}
+
+	#messageForm input {
+		background: var(--whiteGrey);
+		outline: 1px solid var(--whiteGrey);
+		transition: var(--transition);
+	}
+	#messageForm input::placeholder {
+		color: var(--grey);
+	}
+
+	#messageForm input:focus {
+		background: #F4F4F4;
+		outline: 1px solid var(--accent);
+		transition: var(--transition);
+	}
+
+	#messageForm button {
+		color: var(--whiteGrey);
+		background: var(--accent);
+		outline: 1px solid var(--accent);
+	}
+}
+/* =========================================================== Light Mode Styles End */
+
+
+/* Dark Mode Styles Start ========================================================== */
+@media (prefers-color-scheme: dark) {
+	html {
+		color: var(--whiteGrey);
+		background: var(--blackGrey);
+	}
+
+	.logo-nav {
+		background: #2d2e2f;
+	}
+
+	#onlineUsers {
+		color: var(--accent);
+		background: #2d2e2f;
+		border-top: 1px solid var(--blackGrey);
+	}
+
+	#chatroom {
+		background: #353839;
+	}
+
+	.other-msg .msg-wrapper {
+		color: var(--whiteGrey);
+		background: #2d2e2f;
+	}
+
+	.other-msg a {
+		color: var(--whiteGrey);
+	}
+
+	.my-msg .timestamp {
+		color: var(--whiteGrey);
+	}
+	.other-msg .timestamp {
+		color: var(--whiteGrey);
+	}
+
+	#messageForm {
+		background: #2d2e2f;
+	}
+
+	#messageForm input {
+		color: var(--whiteGrey);
+		background: #353839;
+		outline: 1px solid #44484A;
+		transition: var(--transition);
+	}
+	#messageForm input::placeholder {
+		color: var(--grey);
+	}
+
+	#messageForm input:focus {
+		background: #424547;
+		outline: 1px solid var(--accent);
+		transition: var(--transition);
+	}
+
+	#messageForm button {
+		color: var(--whiteGrey);
+		background: var(--accent);
+		outline: 1px solid var(--accent);
+	}
+}
+/* ============================================================ Dark Mode Styles End */
